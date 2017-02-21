@@ -47,12 +47,10 @@ namespace HF2
             PrimKereso pr = new PrimKereso();
             
 
-
-
             for (int y = 0; y < h; y++)
                 for (int x = 0; x < w; x++)                    
-                    if ((y * w + x) % 8 == 1)
-                        lock (buffer)
+                    if (PrimKereso.PrimeSearcher(x))
+                                lock (buffer)
                             buffer.SetPixel(x, y, Color.Black);
 
             this.Invoke(new Action(() => { button1.Enabled = true; }));
