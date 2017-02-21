@@ -57,5 +57,17 @@ namespace HF2
 
             this.Invoke(new Action(() => { button1.Enabled = true; }));
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (buffer == null)
+                return;
+
+            using (Graphics g = panel2.CreateGraphics())
+            {
+                lock (buffer)
+                    g.DrawImage(buffer, 0, 0);
+            }
+        }
     }
 }
