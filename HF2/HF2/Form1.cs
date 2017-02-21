@@ -50,7 +50,7 @@ namespace HF2
 
 
             for (int y = 0; y < h; y++)
-                for (int x = 0; x < w; x++)
+                for (int x = 0; x < w; x++)                    
                     if ((y * w + x) % 8 == 1)
                         lock (buffer)
                             buffer.SetPixel(x, y, Color.Black);
@@ -68,6 +68,13 @@ namespace HF2
                 lock (buffer)
                     g.DrawImage(buffer, 0, 0);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            buffer = new Bitmap(panel2.Width, panel2.Height);
+            lock (buffer)
+                bufferg = Graphics.FromImage(buffer);
         }
     }
 }
