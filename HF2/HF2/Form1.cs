@@ -14,7 +14,7 @@ namespace HF2
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();                       
         }
     }
 }
