@@ -50,10 +50,15 @@ namespace HF2
 
 
             for (int y = 0; y < h; y++)
-                for (int x = 0; x < w; x++)                    
+            {
+                for (int x = 0; x < w; x++)
+                {
+                    //PrimKereso.PrimeSearcher(2+w*h);                    
                     if ((y * w + x) % 8 == 1)
                         lock (buffer)
                             buffer.SetPixel(x, y, Color.Black);
+                }                    
+            }
 
             this.Invoke(new Action(() => { button1.Enabled = true; }));
         }
@@ -75,6 +80,12 @@ namespace HF2
             buffer = new Bitmap(panel2.Width, panel2.Height);
             lock (buffer)
                 bufferg = Graphics.FromImage(buffer);
+        }
+
+        private void panel2_MouseClick(object sender, MouseEventArgs e)
+        {
+            Form2 f2 = new Form2(String.Format("X={0}; Y={1}", e.X, e.Y));
+            f2.ShowDialog(this);
         }
     }
 }
