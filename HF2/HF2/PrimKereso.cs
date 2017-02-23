@@ -4,23 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace HF2
 {
-    class PrimKereso
+    class Prím
     {
-        public static bool PrimeSearcher(int szam)
+        static void Main(string[] args)
         {
-            bool prime = false;
-            int db = 0;
-            for (int i = 1; i <= szam; i++)
+            bool isPrime = true;
+            Console.WriteLine("Prime Numbers : ");
+            for (int i = 2; i <= 4000000; i++)
             {
-                if (szam % i == 0)
+                for (int j = 2; j <= 4000000; j++)
                 {
-                    db++;
+
+                    if (i != j && i % j == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+
                 }
+                if (isPrime)
+                {
+                    Console.Write("\t" + i);
+                }
+                isPrime = true;
             }
-            prime = db == 2;
-            return prime;
+            Console.ReadKey();
         }
     }
 }

@@ -29,6 +29,7 @@ namespace HF2
 
             t = new Thread(new ThreadStart(szal));
             t.Start();
+
         }
 
         void szal()
@@ -53,7 +54,7 @@ namespace HF2
             {
                 for (int x = 0; x < w; x++)
                 {
-                    //PrimKereso.PrimeSearcher(2+w*h);                    
+                    PrimKereso.PrimeSearcher(2+w*h);                    
                     if ((y * w + x) % 8 == 1)
                         lock (buffer)
                             buffer.SetPixel(x, y, Color.Black);
@@ -86,6 +87,11 @@ namespace HF2
         {
             Form2 f2 = new Form2(String.Format("X={0}; Y={1}", e.X, e.Y));
             f2.ShowDialog(this);
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
